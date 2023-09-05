@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FEEDBACK</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        box-sizing: border-box;
+      }
+      
+      body {
+        background-color: rgb(189, 219, 238);
+      }
+      main{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      table {
+        width: 90%;
+      }
+      td:nth-child(1) {
+        width: 15%;
+      }
+      tr{
+        font-size: 18px;
+;
+      }
+      tr:nth-child(odd) {
+        background-color: lightskyblue;
+        color: rgb(0, 0, 0);
+      }
+      tr:nth-child(even) {
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+      }
+      #submit {
+        margin-top: 15px;
+        font-size: 20px;
+        padding: 8px;
+        background-color: yellow;
+        display: inline-block;
+        border-radius: 10px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <table border="1px black solid">
+        <tr>
+          <td>Name</td>
+          <td>VISHAL SHARMA</td>
+        </tr>
+        <tr>
+          <td>ROLL NO</td>
+          <td>2115001130</td>
+        </tr>
+        <tr>
+          <td>Father Name</td>
+          <td>Upendra mohan sharma</td>
+        </tr>
+        <tr>
+          <td>Exam</td>
+          <td>PYTHON</td>
+        </tr>
+        <tr>
+          <td>Subject Code</td>
+          <td>BECS 0001</td>
+        </tr>
+        <tr>
+          <td>Total Question</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>Attemted Questions</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Unattemted Question</td>
+          <td>02</td>
+        </tr>
+        <tr>
+          <td>Taken Taken</td>
+          <td>120</td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+      </table>
+      <div id="submit">
+        <a href="#">Submit</a>
+      </div>
+    </main>
+    <script>
+        let submit = document.getElementById('submit')
+        submit.addEventListener('click',function(e){
+            window.close()
+        })
+        alert('EXAM SUBMITED')
+        window.history.pushState(null,null,null)
+        window.addEventListener('popstate',function(){
+          window.history.pushState(null,null,null);
+        });
+    </script>
+  </body>
+</html>

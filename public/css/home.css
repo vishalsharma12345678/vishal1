@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-items: center;
+  background-color: #ffffff;
+}
+header nav a{
+  color: rgb(255, 255, 255);
+  background-color: #00ff00;
+  font-size: 20px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: 2px solid #00ff00;
+}
+header nav a:hover{
+  color: #00ff00;
+  background-color: white;
+  transition: all 0.9s ease-out
+}
+header h1{
+  color: rgb(255, 255, 255);
+  border: none;
+  text-transform: uppercase;
+}
+main{
+  padding: 20px;
+}
+.card-body{
+  position: relative;
+}
+.status{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3px;
+}

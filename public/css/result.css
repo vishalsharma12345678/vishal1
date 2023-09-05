@@ -1,0 +1,94 @@
+main {
+    display: flex;
+  }
+  
+  .course-data
+  {
+      margin-top: 20px;
+      margin-left: 25px;
+      line-height: .8;
+  }
+  #aside {
+    width: 30%;
+    border-right: 2px solid black;
+    height: 100vh;
+    position: relative;
+    line-height: 0.75;
+  }
+  img {
+    /* position: absolute; */
+    width: 80%;
+    margin-bottom: 20px;
+    /* margin-left: 25px; */
+    border-radius: 50%;
+  }
+  #main {
+    width: 70%;
+    height: 100vh;
+  }
+  .data
+  {
+      margin-top: 20px;
+      margin-left: 25px;
+      line-height: .8;
+  }
+  
+  
+  /*------------------------------------------------*/
+  
+  
+  .heading{
+      margin:20px;
+      padding:10px;
+      display: flex;
+      justify-content: center;
+      border: 1px solid blue;
+  }
+  .sem-details
+  {
+      display: flex;
+      justify-content: center;
+      min-width: 90%;
+      border-bottom: 2px solid rgb(87, 155, 245);
+  }
+  
+  .sem-details ul
+  {
+      list-style: none;
+  }
+  
+  th, td {
+      padding: 15px;
+  }
+  table, th, td {
+      border: 1px solid black;
+  }
+  #table{
+      border: 2px solid blue;
+  }
+  .result-details{
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+  }
+  
+  
+  
+  .grade-details{
+      display: flex;
+      justify-content: center;
+      min-width: 90%;
+      margin-top:40px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

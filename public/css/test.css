@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(220, 253, 253);
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+#header{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+#timmer{
+    font-size: 25px;
+    padding-right: 5%;
+    animation: example 1s ease infinite;
+}
+@keyframes example {
+    from {color: rgb(220, 253, 253);;}
+    to {display: red;}
+  }
+main {
+    display: flex;
+    height: calc(100vh - 37px);
+    display: none;
+}
+
+
+#aside {
+    width: 20%;
+    border: 2px solid black;
+    position: fixed;
+    height: 100vh;
+    right: 0;
+    background-color: aliceblue;
+}
+#aside span{
+    text-align: left;
+    width: 100%;
+    font-size: 20px;
+}
+#main {
+    display: flex;
+    font-size: 23px;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 10px;
+    background-repeat: repeat;
+    padding: 16px;
+}
+#aside > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 50%;
+    border-radius: 50%;
+}
+.button-div{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+} 
+.submit-button{
+    box-shadow: none;
+    background-color: rgb(255, 0, 225);
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+.submit-button:hover{
+    color: rgb(255, 0, 225);
+    background-color: white;
+    letter-spacing: 1.7px;
+    transition: all 1s ease-in-out ;
+}
+
+.questions{
+    display: grid;
+    gap:10px;
+}
+#section-div > div{
+    font-size: 20px;
+    background-color: rgb(171, 171, 255);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+#section-div > div:hover{
+    background-color: rgb(190, 190, 255);
+}
+.previous ,.next, .previous1,.next1{
+    width: fit-content;
+    background-color: #00ff00;
+    color: black;
+    padding: 8px;
+    border-radius: 8px;
+}
+.question-butto {
+    width: 35px;
+    height: 35px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: aqua;
+    padding: 7px 10px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px blue;
+}
+
+.question-butto:hover {
+    background-color: aliceblue; 
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 1px 2px 2px blue;
+} 
+#aside h2{
+    margin-bottom: 15px;
+}
+
+.codingquestion-div{
+    /* height: calc(100vh - 153px); */
+    display: block;
+    gap: 10px;
+    
+}
+.codingquestion-div{
+    display: none;
+    /* flex-direction: column;
+    gap: 10px; */
+}
+.codingquestion-div textarea{
+    width: 100%;
+    resize: none;
+    font-size: 15px;
+}
+.codingquestion-div select{
+    width: 15%;
+    resize: none;
+}
+.codingquestion-div span{
+    font-size: 15px;
+}
+.lang{
+    display: flex;
+    gap: 10px;
+}
+.attention{
+    color:red;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+
+
+.spretor{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.about{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* position: fixed; */
+
+}
+.solution{
+    width: 100%;
+    /* height: calc(100vh - 153px); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 20px;
+}
+table{
+    /* position: absolute; */
+    border-collapse: collapse;
+    text-align: center;
+    width: 90%;
+}
+.ok{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: black;
+    /* display: none; */
+}

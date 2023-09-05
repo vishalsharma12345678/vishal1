@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST PAGE</title>
+    <style>
+      label,
+      input {
+        margin-bottom: 10px;
+      }
+
+      /* div {
+        display: flex;
+        gap: 5px;
+      } */
+
+      div input {
+        width: auto;
+      }
+    </style>
+    <link rel="stylesheet" href="/css/test.css" />
+    <script src="/script/script.js" defer></script>
+    <script src="/script/i.js"></script>
+  </head>
+
+  <body>
+    <header id="header">
+      <div id="timmer"></div>
+      <div id="section-div" style="display: flex; gap: 20px">
+        <% if (multipleQuestion_data.length > 0 || codingQuestion_data.length >
+        0) { %>
+        <div onclick="section1()">SECTION1</div>
+        <% }if(multipleQuestion_data.length > 0 && codingQuestion_data.length >
+        0) { %>
+        <div onclick="section2()">SECTION2</div>
+        <% } %>
+      </div>
+    </header>
+    <section class="ok">
+      <button id="ok">ok</button>
+      <button id="cancel">cancel</button>
+    </section>
+    <main>
+      <section id="main">
+        <div>
+          <form id="form" action="/v4/data" method="post">
+            <input type="hidden" name="test[test_id]" value="<%= test_id %>" />
+            <input
+              type="hidden"
+              name="test[username]"
+              value="<%= user._id %>"
+            />
+            <div style="display: none" id="end_time"><%= test_end %></div>
+            <div style="display: none" id="end_time"><%= test_end %></div>
+            <% let j = 0 %>
+            <div class="questions-all">
+              <!-- <p>Tick the correct Answer</p> -->
+              <%for (const i of multipleQuestion_data) { %>
+              <div>
+                <% if (j !== 0) { %>
+                <div
+                  class="question-button"
+                  id="<%= i._id %>"
+                  style="display: none"
+                >
+                  <div class="questions">
+                    <p><%= j+1 %>. <%= i.question_statement %></p>
+                    <div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[0] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[0] %></label
+                        >
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[1] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[1] %></label
+                        >
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[2] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[2] %></label
+                        >
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[3] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[3] %></label
+                        >
+                      </div>
+                    </div>
+                    <a class="previous" href="#">PREVIOUS</a>
+                    <a class="next" href="#">NEXT</a>
+                  </div>
+                </div>
+
+                <% }else{ %>
+                <div class="question-button" id="<%= i._id %>">
+                  <div class="questions">
+                    <p><%= j+1 %>. <%= i.question_statement %></p>
+                    <div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[0] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[0] %></label
+                        >
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[1] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[1] %></label
+                        >
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[2] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[2] %></label
+                        >
+                      </div>
+                      <div>
+                        <input
+                          type="radio"
+                          name="test[<%= i._id %>]"
+                          value="<%= i.choices[3] %>"
+                          id="verfiy-text-message"
+                        />
+                        <label for="verfiy-text-message"
+                          ><%= i.choices[3] %></label
+                        >
+                      </div>
+                    </div>
+                    <a class="previous" href="#">PREVIOUS</a>
+                    <a class="next" href="#">NEXT</a>
+                  </div>
+                </div>
+                <% } %> <% j++ %>
+              </div>
+              <% }%>
+            </div>
+            <div class="codingquestion-div">
+              <div class="spretor">
+                <% let s = 0; %> <%for (const h of codingQuestion_data) {%>
+                <div class="about">
+                  <h3>Problem Statement</h3>
+                  <p><%= h.question_statement %></p>
+                  <h3>Sample input</h3>
+                  <table border="1px solid black">
+                    <tr>
+                      <th>input</th>
+                      <th>OUTPUT</th>
+                      <th>DESCRIPTION</th>
+                    </tr>
+                    <tr>
+                      <td><%= h.input_description %></td>
+                      <td><%= h.output_description %></td>
+                      <td>NO DESCRIPTION</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="solution">
+                  <input
+                    type="hidden"
+                    name="coding[<%= s %>][test_id]"
+                    value="<%= test_id %>"
+                  />
+                  <input
+                    type="hidden"
+                    name="coding[<%= s %>][question_id]"
+                    id=""
+                    value="<%= h._id %>"
+                  />
+                  <input
+                    type="hidden"
+                    name="coding[<%= s %>][username]"
+                    value="<%= user.username %>"
+                  />
+                  <div class="lang">
+                    <span>LANGUAGE</span>
+                    <select name="coding[<%= s %>][lang]" id="">
+                      <option value="c++">c++</option>
+                      <option value="java">java</option>
+                      <option value="python">python3</option>
+                      <option value="c">C</option>
+                    </select>
+                  </div>
+                  <textarea
+                    placeholder="write your code here................"
+                    name="coding[<%= s %>][source_code]"
+                    id=""
+                    cols="30"
+                    rows="25"
+                  ></textarea>
+                  <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <a href="#">RUN</a>
+                    </div>
+                    <div>
+                      <a class="previous1" href="#">PREVIOUS</a>
+                      <a class="next1" href="#">NEXT</a>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+              </div>
+            </div>
+            <div class="button-div">
+              <button id="submit-button" class="submit-button">SUBMIT</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section id="aside">
+        <div>
+          <span style="text-transform: uppercase"><%= user.username %></span>
+          <span> <%= user.email %></span>
+          <span><%= test.test_name %></span>
+          <h2>Multiple Choise</h2>
+          <% let k = 1 %>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              justify-content: space-around;
+              gap: 10px;
+            "
+          >
+            <%for (const i of multipleQuestion_data) { %>
+            <div class="question-butto" id="<%= i._id %>"><%= k %></div>
+            <% k++; %> <% } %>
+          </div>
+          <hr />
+          <h2>Coding Question</h2>
+          <div
+            style="
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              gap: 10px;
+              justify-content: space-around;
+            "
+          >
+            <%for (const i of codingQuestion_data) { %>
+            <div class="question-butto" id="<%= i._id %>"><%= k %></div>
+            <% k++ %> <% }%>
+          </div>
+        </div>
+        <p class="attention">DO NOT PRESS SUBMIT BEFORE COMPLETION OF EXAM</p>
+        <p class="attention">Complete all section before submit</p>
+      </section>
+    </main>
+    <script>
+      let cancel = document.getElementById("cancel");
+      cancel.addEventListener("click", function () {
+        window.close();
+      });
+
+      let ok = document.getElementById("ok");
+      let off = document.getElementsByClassName("ok")[0];
+      let header = document.getElementById("header");
+      let main = document.getElementsByTagName("main")[0];
+      ok.addEventListener("click", function () {
+        document.documentElement.requestFullscreen();
+        off.style.display = "none";
+        header.style.display = "flex";
+        main.style.display = "flex";
+      });
+      function section1() {
+        let main = document.getElementById("main");
+        let section1 = document.getElementsByClassName("questions-all")[0];
+        let section2 = document.getElementsByClassName("codingquestion-div")[0];
+        console.log(section1);
+        console.log(section2);
+        section1.style.display = "block";
+        section2.style.display = "none";
+        main.style.display = "flex";
+      }
+      function section2() {
+        let main = document.getElementById("main");
+        let section1 = document.getElementsByClassName("questions-all")[0];
+        let section2 = document.getElementsByClassName("codingquestion-div")[0];
+        section1.style.display = "none";
+        section2.style.display = "flex";
+        main.style.display = "block";
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          event.preventDefault();
+        }
+      });
+      let end_time = document.getElementById("end_time");
+      let endhour = new Date(+end_time.textContent).getHours();
+      let endmintue = new Date(+end_time.textContent).getMinutes() - 1;
+      let endsec = new Date(+end_time.textContent).getSeconds();
+      let timmer = document.getElementById("timmer");
+      let currentHour = 0;
+      let currentMin = 0;
+      let currentsec = 0;
+      let i = setInterval(() => {
+        let currentHour = new Date().getHours();
+        let currentMin = new Date().getMinutes();
+        let currentsec = new Date().getSeconds();
+        if (
+          endhour - currentHour === 0 &&
+          endmintue - currentMin === 0 &&
+          60 - (currentsec - endsec) - 1 === 0
+        ) {
+          // let submit1 = document.getElementById('form')
+          // setTimeout(()=>{
+          //   submit1.submit()
+          //   // window.close()
+          // },100)
+          clearInterval(i);
+        }
+        console.log(
+          endhour -
+            currentHour +
+            ":" +
+            (endmintue - currentMin) +
+            ":" +
+            (60 - (currentsec - endsec) - 1)
+        );
+        let hour = 0;
+        if (endhour - currentHour < 10) {
+          hour = "0" + (endhour - currentHour);
+          // timmer.style.color = 'red'
+        } else {
+          hour = endhour - currentHour;
+        }
+        let min = 0;
+        if (endmintue - currentMin < 10) {
+          min = "0" + (endmintue - currentMin);
+          timmer.style.color = "red";
+        } else {
+          min = endmintue - currentMin;
+        }
+        let sec = 0;
+        if (60 - (currentsec - endsec) < 10) {
+          sec = "0" + (60 - (currentsec - endsec));
+        } else {
+          sec = 60 - (currentsec - endsec);
+        }
+        timmer.textContent = `${hour} : ${min} : ${sec}`;
+      }, 1000);
+    </script>
+  </body>
+</html>
